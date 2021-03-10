@@ -1,18 +1,10 @@
 defmodule ListLength do
-  @moduledoc """
-  Documentation for `ListLength`.
-  """
+  def call(list), do: count_elements(list, 0)
 
-  @doc """
-  Hello world.
+  defp count_elements([], acc), do: acc
 
-  ## Examples
-
-      iex> ListLength.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  defp count_elements([head | tail], acc) do
+    acc = acc + 1
+    count_elements(tail, acc)
   end
 end
